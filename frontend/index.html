@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sentiment Analysis</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Product Sentiment Analysis</h1>
+        <p>Machine Learning Based Review Classification</p>
+    </div>
+
+    <div class="card">
+
+        <label for="review">
+            Enter Product Review
+        </label>
+
+        <textarea
+            id="review"
+            placeholder="Type or paste a product review here..."
+            oninput="updateCounter()">
+        </textarea>
+
+        <div class="counter">
+            Characters:
+            <span id="charCount">0</span>
+        </div>
+
+        <div class="example-buttons">
+
+            <button type="button"
+                onclick="setReview('This product is amazing and exceeded my expectations.')">
+                Positive Example
+            </button>
+
+            <button type="button"
+                onclick="setReview('Worst purchase ever. Waste of money.')">
+                Negative Example
+            </button>
+
+            <button type="button"
+                onclick="setReview('The product arrived on time and works as expected.')">
+                Neutral Example
+            </button>
+
+        </div>
+
+        <button
+            class="analyze-btn"
+            onclick="predictSentiment()">
+            Analyze Review
+        </button>
+
+    </div>
+
+    <div id="resultCard"
+         class="result-card hidden">
+
+        <h2 id="resultText">
+            Sentiment
+        </h2>
+
+        <div class="progress">
+
+            <div
+                id="confidenceBar"
+                class="progress-fill">
+            </div>
+
+        </div>
+
+        <p id="confidenceText">
+            Confidence: 0%
+        </p>
+
+    </div>
+
+    <div class="info-card">
+
+        <h3>Model Information</h3>
+
+        <p>
+            <strong>Dataset:</strong>
+            Amazon Product Reviews Dataset
+        </p>
+
+        <p>
+            <strong>Training Samples:</strong>
+            300,000 Reviews
+        </p>
+
+        <p>
+            <strong>Algorithm:</strong>
+            TF-IDF + Logistic Regression
+        </p>
+
+        <p>
+            <strong>Accuracy:</strong>
+            86.89%
+        </p>
+
+        <p>
+            <strong>Classes:</strong>
+            Positive, Neutral, Negative
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
